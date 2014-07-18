@@ -1,0 +1,51 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# samsung galaxy
+# CAAEbc9n55QkBAIcxzZCc7ZC119SrghK3tWnrPSXqyUI88cYl9GwQ95Kn7AydYiP4IUS1lKORznoIAvVgUMef6I8W4cyIgKb1ZABASFdyZBPrCZAofiFgs8X4QVZA5UQDPSPeox7gVzbO1ho2KHZAc2IZAS9NOHOUdimiLG8g8pKDiffOUmtxuS7FbITmEFPlvwkZD
+
+# causes
+# CAAAAAIo4oJoBAF4SF1vA5tEOvOUmNRVThV9PJLm2HaBGXZBFBkya1CLkKQMVc7sDTZBMC09bNWJFFiZAs4nk3VEDZBCyiHj3L7IMmoh6BrO50jboz2uCG13Ax3x63BCPEWBdPoMUVp6JBwHTmLN7OHKgJVppTl7ZCexAiVZAvvZBpJ6OywSeiPKo93OklocluoNZCrMJd3cZCZBgZDZD
+
+
+#farmvill
+# CAAAAF9qfbAgBAHJLfhJwTDyx0C2GEOcXiuaHZCRUzL0y4ET2ZApDwoV1XeyW0BbsgE6LJXh82VCgwCxo530mZARC8zl03hzaSg0p2tPA7gx9ZAQPA1KlsA5nVpv5h3CYKUmGF15wpz5ZCNC45F0Oq8elXrhznEzwY9ZB9GB6NjgaL5zT8EKvWlXi80G9RFjhZA3vYRXFqHD2AZDZD
+# CAAAAFQreiTYBABFo3MZBkUV7OfLdcKNFeJdjGTqMViFhmwnGO8N3MZA8MuIvChPAdVb1ZCaN89OAWc77Asm6ySD5zMLN4xe0EMdjmwk73MVMUNmRATVP3v6jsE9aj9Cx0f1mSjj3ZByZA3cpajNALD7xPBY7izrDkLfyFduoHfELIioFoJWkAZCpHMZBdu4Q3plMhuVBBYorwZDZD
+# CAADOnYkEwaoBAK7n0rIoi31xAHoYRVEud817ctyclfkk2WFyZCPgIWyeU9B3oxtX66PKmEwHZAQFONX0zz28uqUv7u9dtF8lArBYTISXTi0wLFz88N42ssTSZARWn0ZA2xIkINvZANT8v3f06JQsWBS1fr2KfEVxnjwMeL2T9ZAjKKdREc2gbZCwb9nb5eFpw5Abgat7HozbgZDZD
+# CAACOZBrber00BAOyZAN4wpYCivG44JAVXWGB6AJ3Y27EIQ0zSZAV4oZBwa7EKqbLeWcG2TBUYpaZAozZBRqhnfQrB5kzPznon7IPvKaf6nNktZCRvcRxPNKMevxwTHjEneimYZAIX6T7YwkKwZBqRnYnnFafbBc4ZAKbcSDXBng50L1vH24cLlIoRmNJrcU7ZCEmyPBfGg5CIq5tgZDZD
+
+#angry birds star wars
+# CAAFQtadQB1sBACBVlSygbOr3eONqXx9sce2m6uOeaZAs5F81HJNI3pK4AscZAXNzYCAjLNrV0nslnN0y9YBK63ZAD3mqJST6jZCJwL9Ey7WeZBmS9DRLptZBl6dJIFfuZAfgAVZBTjr2Jdk2IYZA4y6Ygf6EwP7vRjBKHiZCCZA61ZAAdiiHYg3XGYJ0lfhAlAQDd83dAz7t3qkMOwZDZD
+
+#test_python
+# CAAI2xPsbDj0BAAYLhZBlUhXywRvOgXeIMUs2FsR2wlZA6aDltme3Mp7UUU13yOGLnOmdvZBUlNSY8h0R33D77W4mhfCDzfnvN6DicCjbMmx31p6xuoSA586gTKgemZBz4dlf1LstAeEqjdDxHjtaJKiUDybrzm9EoTELqz9HcWAqw55PZCisnJzgzJeAKOm0AihRjZA82XHgZDZD
+
+
+import facebook
+import sys
+import codecs
+
+#this token can access data for a period of time...
+token='CAAEbc9n55QkBAIcxzZCc7ZC119SrghK3tWnrPSXqyUI88cYl9GwQ95Kn7AydYiP4IUS1lKORznoIAvVgUMef6I8W4cyIgKb1ZABASFdyZBPrCZAofiFgs8X4QVZA5UQDPSPeox7gVzbO1ho2KHZAc2IZAS9NOHOUdimiLG8g8pKDiffOUmtxuS7FbITmEFPlvwkZD'
+account_id = "100007642905237"
+graph = facebook.GraphAPI(token)
+# get only statuses...
+feeds = graph.get_connections(account_id, "feed")
+#conversations = graph.get_connections(account_id, "friends")
+
+
+# graph.put_object("100002917748068", "feed", message="test test test ")
+
+
+print feeds
+for post in feeds["data"]:
+	if "story" in post:
+		print post["story"]
+		if "message" in post:
+			print post["message"]
+	if "message" in post :
+		print post["message"]
+	print "\n"
+#print feeds
+print "\n"
+#print "conversations = " + str(conversations)	
